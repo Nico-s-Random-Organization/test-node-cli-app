@@ -1,11 +1,11 @@
 name: POST MERGE
 on:
-  workflow_dispatch:
+  workflow_call:
     inputs:
-        target_environment:
-            description: 'Target environment'
-            required: true
-            default: 'staging'
+      target_environment:
+        description: 'Target environment'
+        required: true
+        default: 'staging'
 jobs:
   RUN_TEST:
     runs-on: ubuntu-latest
