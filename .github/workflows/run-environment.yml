@@ -1,4 +1,4 @@
-name: POST MERGE
+name: RUN ENV
 on:
   workflow_dispatch:
     inputs:
