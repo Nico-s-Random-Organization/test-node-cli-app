@@ -12,7 +12,7 @@ const items = [
     'gato'
 ];
 
-console.log(process.env.ENVIRONMENT_NAME);
+console.log(process.env.ENVIRONMENT_NAME === 'staging' ? 'environment numero um' : 'env num 2');
 
 console.log('-------- OLD ITEMS -------');
 console.log(items);
