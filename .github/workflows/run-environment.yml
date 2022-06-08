@@ -1,0 +1,15 @@
+name: POST MERGE
+on:
+  workflow_dispatch:
+    inputs:
+      target_environment:
+        description: 'Target environment'
+        required: true
+        default: 'staging'
+jobs:
+  TRYING_TO_RUN_ANOTHER_WORKFLOW:
+    runs-on: ubuntu-latest
+    steps:
+        - uses: ./github/workflows/post-merge
+          with:
+            target_environment : ${{ github.event.inputs.target_environment }}
