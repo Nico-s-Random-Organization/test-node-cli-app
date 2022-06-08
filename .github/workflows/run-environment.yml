@@ -10,6 +10,8 @@ jobs:
   TRYING_TO_RUN_ANOTHER_WORKFLOW:
     runs-on: ubuntu-latest
     steps:
+        - name: checkout
+          uses: actions/checkout@v3
         - uses: ./github/workflows/post-merge
           with:
             target_environment : ${{ github.event.inputs.target_environment }}
