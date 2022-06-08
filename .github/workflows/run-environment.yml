@@ -11,6 +11,10 @@ jobs:
   TRYING_TO_RUN_ANOTHER_WORKFLOW:
     runs-on: ubuntu-latest
     steps:
-        - uses: Nico-s-Random-Organization/test-node-cli-app/github/workflows/post-merge
+        - name: checkout
+          uses: actions/checkout@v3
+        - name: check file dir
+          run: ls -la
+        - uses: /.github/workflows/post-merge
           with:
             target_environment : ${{ github.event.inputs.target_environment }}
