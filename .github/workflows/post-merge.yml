@@ -1,10 +1,15 @@
 name: POST MERGE
 on:
-  push:
   workflow_dispatch:
+    inputs:
+        target_environment:
+            description: 'Target environment'
+            required: true
+            default: 'staging'
 jobs:
   RUN_TEST:
     runs-on: ubuntu-latest
+    environment: ${{ github.event.inputs.flutter_version }}
     steps:
         - name: checkout
           uses: actions/checkout@v3
