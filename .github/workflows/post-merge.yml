@@ -21,4 +21,4 @@ jobs:
         - name: display current env
           env:
             ENV_NAME: ${{ secrets.ENV_NAME }}
-          run: ECHO $ENV_NAME
+          run: echo $ENV_NAME
