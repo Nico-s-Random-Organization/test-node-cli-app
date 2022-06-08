@@ -5,13 +5,12 @@ on:
       target_environment:
         description: 'Target environment'
         required: true
+        type: string
         default: 'staging'
 jobs:
   TRYING_TO_RUN_ANOTHER_WORKFLOW:
     runs-on: ubuntu-latest
     steps:
-        - name: checkout
-          uses: actions/checkout@v3
-        - uses: ./github/workflows/post-merge
+        - uses: Nico-s-Random-Organization/test-node-cli-app/github/workflows/post-merge
           with:
             target_environment : ${{ github.event.inputs.target_environment }}
