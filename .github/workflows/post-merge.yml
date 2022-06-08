@@ -9,7 +9,7 @@ on:
 jobs:
   RUN_TEST:
     runs-on: ubuntu-latest
-    environment: ${{ github.event.inputs.flutter_version }}
+    environment: ${{ github.event.inputs.target_environment }}
     steps:
         - name: checkout
           uses: actions/checkout@v3
