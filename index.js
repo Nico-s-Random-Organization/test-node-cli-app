@@ -13,6 +13,7 @@ const items = [
 ];
 
 console.log(process.env.ENVIRONMENT_NAME);
+
 console.log('-------- OLD ITEMS -------');
 console.log(items);
 console.log('-------- NEW ITEMS -------');
