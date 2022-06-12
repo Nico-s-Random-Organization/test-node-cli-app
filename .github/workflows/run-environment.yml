@@ -1,20 +1,20 @@
 name: RUN ENV
 on:
-  workflow_dispatch:
-    inputs:
-      target_environment:
-        description: 'Target environment'
-        required: true
-        type: string
-        default: 'staging'
+  push:
 jobs:
   TRYING_TO_RUN_ANOTHER_WORKFLOW:
     runs-on: ubuntu-latest
     steps:
         - name: checkout
           uses: actions/checkout@v3
-        - name: check file dir
-          run: ls -la
-        - uses: ./.github/workflows/post-merge.yml
+        - name: setup node
+          uses: actions/setup-node@v3
           with:
-            target_environment : ${{ github.event.inputs.target_environment }}
+            node_version: 16
+        - name: install dependencies
+          run: npm install
+        - name: Trigger Post Merge workflow
+          run: node jobs/triggerPostMergeWorkflow.js
+          env:
+            BRANCH_NAME: ${{ contexts.github.ref_name }}
+            GITHUB_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}

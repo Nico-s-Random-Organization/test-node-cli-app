@@ -1,0 +1,5 @@
+{
+    "development": "Dev",
+    "production": "Prod",
+    "master": "Staging"
+}
