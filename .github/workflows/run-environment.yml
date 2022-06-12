@@ -16,5 +16,5 @@ jobs:
         - name: Trigger Post Merge workflow
           run: node jobs/triggerPostMergeWorkflow.js
           env:
-            BRANCH_NAME: ${{ contexts.github.ref_name }}
+            BRANCH_NAME: ${{ context.github.ref_name }}
             GITHUB_ACCESS_TOKEN: ${{ secrets.GH_ACCESS_TOKEN }}
